@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--加载属性文件-->
+    <context:property-placeholder location="classpath:propertiesConfig/jdbc.properties"/>
+
+    <!--配置hibernate数据源-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${mysql.jdbc.driverClassName}"/>
+        <property name="url" value="${mysql.jdbc.url}"/>
+        <property name="username" value="${mysql.jdbc.username}"/>
+        <property name="password" value="${mysql.jdbc.password}"/>
+        <property name="maxActive" value="${mysql.jdbc.maxActive}"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:hibernateConfig/hibernate.cfg.xml"/>
+    </bean>
+
+</beans>
