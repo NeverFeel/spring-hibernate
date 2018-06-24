@@ -19,7 +19,7 @@
         <property name="hibernate.format_sql">true</property>
 
         <!-- 注册对象关系映射 -->
-        <mapping class="com.ilidan.domain.Student"/>
+       <!-- <mapping class="com.ilidan.domain.Student"/>-->
 
     </session-factory>
 

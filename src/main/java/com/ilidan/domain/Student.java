@@ -17,7 +17,7 @@ public class Student implements Serializable {
     private static final long serialVersionUID = -8248425454978102767L;
 
     @Id
-    @GeneratedValue//默认AUTO会生成额外的hibernate_sequence表
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//默认AUTO会生成额外的hibernate_sequence表
     private Long id;
 
     @Column(length = 11)

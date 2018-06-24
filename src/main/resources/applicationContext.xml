@@ -24,6 +24,7 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <!--配置增强-->
     <tx:advice id="hibernateTransactionAdvice" transaction-manager="hibernateTasactionFactory">
         <tx:attributes>
             <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
@@ -33,9 +34,15 @@
         </tx:attributes>
     </tx:advice>
 
+    <!--配置切面-->
     <aop:config>
         <aop:pointcut id="hibernateTrasactionPointcut" expression="execution(* com.ilidan.dao..*(..))"/>
         <aop:advisor advice-ref="hibernateTransactionAdvice" pointcut-ref="hibernateTrasactionPointcut"/>
     </aop:config>
+
+    <!--使用hibernateTemplate对数据库进行操作-->
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
 
 </beans>
