@@ -1,6 +1,8 @@
 package com.ilidan.dao.impl;
 
-import com.ilidan.dao.TestDao;
+import com.ilidan.base.dao.impl.BaseDaoImpl;
+import com.ilidan.dao.StudentDao;
+import com.ilidan.domain.Student;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -11,9 +13,5 @@ import org.springframework.stereotype.Repository;
  * @Modified by:
  */
 @Repository
-public class TestDaoImpl implements TestDao {
-    @Override
-    public void testMethod() {
-
-    }
+public class StudentDaoImpl extends BaseDaoImpl<Student> implements StudentDao {
 }

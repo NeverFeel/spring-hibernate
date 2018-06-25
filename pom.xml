@@ -112,7 +112,6 @@
             <version>1.0.0.Final</version>
         </dependency>
 
-
         <!--日志-->
         <dependency>
             <groupId>log4j</groupId>
@@ -123,7 +122,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
